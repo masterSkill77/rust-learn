@@ -1,4 +1,4 @@
-use std::io;
+// use std::io;
 // use std::io;
 // fn main() {
 //     println!("Guess the number!");
@@ -65,20 +65,29 @@ use std::io;
 // }
 
 fn main() {
-    let mut guess_age: String = String::new();
+    // let mut guess_age: String = String::new();
 
-    println!("Quel âge avez-vous ?");
+    // println!("Quel âge avez-vous ?");
 
-    io::stdin()
-        .read_line(&mut guess_age)
-        .expect("Veuillez remplir l'âge");
+    // io::stdin()
+    //     .read_line(&mut guess_age)
+    //     .expect("Veuillez remplir l'âge");
 
-    let age: u64 = guess_age.trim().parse().expect("Not a number");
-    if age > 18 && age <= 60 {
-        println!("Votre âge est {}, hahaha, vous êtes majeur", age);
-    } else if age > 60 {
-        println!("Vous avez besoin de prendre votre retraite")
-    } else {
-        println!("Votre âge est {}, hahaha, va jouer ailleurs", age);
-    }
+    // let age: u64 = guess_age.trim().parse().expect("Not a number");
+    // if age > 18 && age <= 60 {
+    //     println!("Votre âge est {}, hahaha, vous êtes majeur", age);
+    // } else if age > 60 {
+    //     println!("Vous avez besoin de prendre votre retraite")
+    // } else {
+    //     println!("Votre âge est {}, hahaha, va jouer ailleurs", age);
+    // }
+
+    let mut counter = 0;
+    let result = loop {
+        counter += 1;
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+    println!("The result is {}", result);
 }
