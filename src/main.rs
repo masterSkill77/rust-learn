@@ -74,8 +74,10 @@ fn main() {
         .expect("Veuillez remplir l'âge");
 
     let age: u64 = guess_age.trim().parse().expect("Not a number");
-    if age > 18 {
+    if age > 18 && age <= 60 {
         println!("Votre âge est {}, hahaha, vous êtes majeur", age);
+    } else if age > 60 {
+        println!("Vous avez besoin de prendre votre retraite")
     } else {
         println!("Votre âge est {}, hahaha, va jouer ailleurs", age);
     }
