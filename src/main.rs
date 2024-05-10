@@ -91,14 +91,11 @@ fn main() {
     // };
     // println!("The result is {}", result);
 
-    let factoriel_number = factoriel(6);
-
-    println!("{}", factoriel_number);
-}
-
-fn factoriel(number: i32) -> i32 {
-    if number == 0 {
-        return 1;
+    let mut laps: i32 = 10;
+    println!("Depart du fusée dans :");
+    while laps >= 0 {
+        println!(" {}", laps);
+        laps = laps - 1;
     }
-    number * factoriel(number - 1)
+    println!("Décolage");
 }
