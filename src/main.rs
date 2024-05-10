@@ -1,100 +1,42 @@
-// use std::io;
-// use std::io;
-// fn main() {
-//     println!("Guess the number!");
-//     println!("Please input your guess.");
-//     let mut guess = String::new();
-//     io::stdin()
-//         .read_line(&mut guess)
-//         .expect("Failed to read line");
-//     println!("You guessed: {}", guess);
-// }
-// const BAR: &str = "14";
+// Convert temperatures between Fahrenheit and Celsius
 
-// fn main() {
-//     const FOO: char = 'a';
-//     // let FOO: &str = "a";
-//     /*
-//      * There is also const
-//      * Double quotes is for string, simple is for char
-//      */
-//     println!("{} and {}", FOO, BAR);
-// }
+// Temperature in degrees Fahrenheit (°F) = (Temperature in degrees Celsius (°C) * 9/5) + 32
+// Temperature in degrees Celsius (°C) = (Temperature in degrees Fahrenheit (°F) - 32) * 5/9
 
-// fn main() {
-// const _VALUE_FOUR_FLOAT: f32 = 4.8;
-// Shadowing variable immutable
-// Redeclarer le meme variable avec le mot clé let
-//Peut changer de type en route
-
-// Les tuples
-// let tuples: (i32, i32) = (5000, 5000);
-
-// let (_tuple_0, _tuple_1) = tuples;
-
-// println!(
-//     "Value const : {} and value of tuple[0] : {}",
-//     VALUE_FOUR_FLOAT, _tuple_0
-// );
-
-//     const _DAYS_OF_WEEK: [&str; 7] = [
-//         "Monday",
-//         "Tuesday",
-//         "Wednesday",
-//         "Thursday",
-//         "Friday",
-//         "Saturday",
-//         "Sunday",
-//     ];
-
-//     let students_notes: [i32; 7] = [10; 7];
-
-//     greetings("Klay");
-
-//     let return_value: i32 = addition(12, 25);
-
-//     println!("{} ", students_notes[0] as f64 / return_value as f64);
-// }
-
-// fn greetings(name: &str) {
-//     println!("Hello {}", name);
-// }
-
-// fn addition(a: i32, b: i32) -> i32 {
-//     a + b
-// }
-
-use std::ops::Range;
+use std::io;
 
 fn main() {
-    // let mut guess_age: String = String::new();
+    println!("Hello Rustacean ;) ;)");
 
-    // println!("Quel âge avez-vous ?");
+    let mut which_conversion: String = String::new();
+    println!("In which conversion you want to do. ( F for Fahrenheit, C for Celsius ) ?");
+    io::stdin()
+        .read_line(&mut which_conversion)
+        .expect("Provider the conversion");
+    println!("You want to convert it into {}", which_conversion);
+    println!("What is the temperature ?");
+    let which_conversion = which_conversion.trim();
+    let mut temp: String = String::new();
 
-    // io::stdin()
-    //     .read_line(&mut guess_age)
-    //     .expect("Veuillez remplir l'âge");
+    io::stdin()
+        .read_line(&mut temp)
+        .expect("Provide the temperature");
 
-    // let age: u64 = guess_age.trim().parse().expect("Not a number");
-    // if age > 18 && age <= 60 {
-    //     println!("Votre âge est {}, hahaha, vous êtes majeur", age);
-    // } else if age > 60 {
-    //     println!("Vous avez besoin de prendre votre retraite")
-    // } else {
-    //     println!("Votre âge est {}, hahaha, va jouer ailleurs", age);
-    // }
+    let temp: f64 = temp.trim().parse().expect("Provide number");
+    let temp: f64 = _convertiser(temp, &which_conversion);
 
-    // let mut counter = 0;
-    // let result = loop {
-    //     counter += 1;
-    //     if counter == 10 {
-    //         break counter * 2;
-    //     }
-    // };
-    // println!("The result is {}", result);
-    let tuples: Range<i8> = 1..5;
+    println!(
+        "The temperature you provide is {} {}",
+        temp, which_conversion
+    );
+}
 
-    for element in tuples.rev() {
-        println!("Countdown {}", element);
+fn _convertiser(temp: f64, convert_into: &str) -> f64 {
+    let number: f64;
+    if convert_into == "F" {
+        number = (temp * (9 as f64 / 5 as f64)) + 32 as f64;
+    } else {
+        number = (temp - 32 as f64) * (5 as f64 / 9 as f64);
     }
+    return number;
 }
