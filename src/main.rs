@@ -91,11 +91,9 @@ fn main() {
     // };
     // println!("The result is {}", result);
 
-    let mut laps: i32 = 10;
-    println!("Depart du fusée dans :");
-    while laps >= 0 {
-        println!(" {}", laps);
-        laps = laps - 1;
+    let my_array: [i8; 6] = [6; 6];
+
+    for element in my_array.iter() {
+        println!("{}", element);
     }
-    println!("Décolage");
 }
