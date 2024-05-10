@@ -64,6 +64,8 @@
 //     a + b
 // }
 
+use std::ops::Range;
+
 fn main() {
     // let mut guess_age: String = String::new();
 
@@ -90,10 +92,9 @@ fn main() {
     //     }
     // };
     // println!("The result is {}", result);
+    let tuples: Range<i8> = 1..5;
 
-    let my_array: [i8; 6] = [6; 6];
-
-    for element in my_array.iter() {
-        println!("{}", element);
+    for element in tuples.rev() {
+        println!("Countdown {}", element);
     }
 }
