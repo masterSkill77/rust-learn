@@ -82,12 +82,23 @@ fn main() {
     //     println!("Votre âge est {}, hahaha, va jouer ailleurs", age);
     // }
 
-    let mut counter = 0;
-    let result = loop {
-        counter += 1;
-        if counter == 10 {
-            break counter * 2;
-        }
-    };
-    println!("The result is {}", result);
+    // let mut counter = 0;
+    // let result = loop {
+    //     counter += 1;
+    //     if counter == 10 {
+    //         break counter * 2;
+    //     }
+    // };
+    // println!("The result is {}", result);
+
+    let factoriel_number = factoriel(6);
+
+    println!("{}", factoriel_number);
+}
+
+fn factoriel(number: i32) -> i32 {
+    if number == 0 {
+        return 1;
+    }
+    number * factoriel(number - 1)
 }
